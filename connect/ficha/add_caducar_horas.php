@@ -24,7 +24,7 @@ if(isset($_POST['titulo'], $_POST['horas'], $_POST['descripcion'],
 
         $stmt = $mysqli->prepare("INSERT INTO items(titulo, descripcio, id_client, data_inici, hores, data_final, caducada) VALUES(?, ?, ?, ? , ?, ? , ?)");
 
-        $stmt->bind_param('ssisisi', $titulo, $descripcion, $cliente, $fecha_inicio, $horas, $fecha_inicio, $caducada);
+        $stmt->bind_param('ssisdsi', $titulo, $descripcion, $cliente, $fecha_inicio, $horas, $fecha_inicio, $caducada);
 
         if ($stmt->execute()) {
             echo "OK";

@@ -42,7 +42,7 @@ if(isset($_POST['horas'], $_POST['cliente'], $_POST['meses'])) { //COMPROBAMOS Q
 
             $clientePaquete = getCliente($cliente, $mysqli);
 
-            $dataFormateada = date( "m/d/Y", strtotime($data_final));
+            $dataFormateada = date( "d-m-Y", strtotime($data_final));
 
             enviarCorreoNuevoPaquete('Paquete horas adquirido',
                 $clientePaquete['email'],

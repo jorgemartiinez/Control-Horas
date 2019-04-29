@@ -23,5 +23,5 @@ if(isset($_POST['hostBD'],$_POST['usuarioBD'],$_POST['nombreBD'],$_POST['contras
     require ('../BD.php');
 
     session_start();
-    $_SESSION['instalacion'] = 'installation-2';
+    $_SESSION['instalacion'] = 'installation-2'; //pasamos al segundo paso de la instalación, no queremos que el cliente vuelva a uno anterior o pase al 3
 }

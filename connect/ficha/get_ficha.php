@@ -54,8 +54,8 @@ if(isset($_GET['cliente'])) {
                 $totalConsumidas = formatearNumero($horasData['consumidas']);
 
                 //obtenemos los datos necesarios
-                /* SALDO */
-                $saldo = $totalPaquetes - $totalConsumidas;
+
+
 
                 /* HORAS CONSUMIDAS */
                 $consumidas = $totalConsumidas;
@@ -63,6 +63,11 @@ if(isset($_GET['cliente'])) {
 
                 /* HORAS CONTRATADAS */
                 $totalHorasContratadas = $totalPaquetes;
+
+                /* SALDO */
+
+                $saldoFormatoBD = $horasData['totalHorasPaquetes'] - $horasData['consumidas'];
+                $saldo = formatearNumero($saldoFormatoBD);
 
                 /* FECHAS */
                 $fechaSinHoras = explode(" ", $horasData['fecha_caducidad']);

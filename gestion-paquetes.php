@@ -78,10 +78,10 @@ require('connect/paquetes/get_paquetes.php');
                                             <?=$paquete['horas']?>
                                         </td>
                                         <td>
-                                            <?=$paquete['data_inici']?>
+                                            <?=date("d-m-Y", strtotime($paquete['data_inici']));?>
                                         </td>
                                         <td>
-                                            <?=$paquete['data_final']?>
+                                            <?=date("d-m-Y", strtotime($paquete['data_final']));?>
                                         </td>
                                         <td>
                                             <a onclick="abrirModal(<?=$paquete['cliente']?>)" class="action-icon" data-animation="fadein" data-plugin="custommodal" data-overlaycolor="#38414a"><i class="mdi mdi-plus-circle mr-1"></i> </a>

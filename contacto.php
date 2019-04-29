@@ -38,12 +38,12 @@ include('include/partials/main/navbar-main.php');
                             <form id="form-contacto">
                                 <div class="form-group">
                                     <label for="titulo">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" placeholder="Introduzca su nombre." maxlength="60" onkeyup="comprobarCampo(this)" required>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Introduzca su nombre." maxlength="60" onkeyup="comprobarCampo(this)" value="<?=$_SESSION['usuario']['nom']?>" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="horas">Email</label>
-                                    <input type="email" class="form-control" id="email"  placeholder="Introduzca su correo electrónico." onkeyup="comprobarCampo(this)" required>
+                                    <input type="email" class="form-control" id="email"  placeholder="Introduzca su correo electrónico." onkeyup="comprobarCampo(this)" value="<?=$_SESSION['usuario']['email']?>" required>
                                 </div>
 
                                 <div class="form-group">

@@ -1,10 +1,16 @@
 <?php
-/*clearstatcache();
-if(filesize('connect/config.php') && filesize('connect/BD.php')) {
-    $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
-    $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
+session_start();
+clearstatcache();
+
+//obtenemos la ruta
+$protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+$ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
+
+//comprobamos si existen los ficheros y no hay una instalación en proceso
+if(filesize('connect/config.php') && filesize('connect/BD.php') && !isset($_SESSION['instalacion'])) {
     header("Location:".$ruta);
-}*/
+}
+
 ?>
 
 <!DOCTYPE html>

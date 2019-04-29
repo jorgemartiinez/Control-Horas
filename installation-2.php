@@ -1,11 +1,9 @@
 <?php include('include/partials/install/header-install.php');
 
-/*session_start();
 if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
-    header('Location:'.$ruta.$_SESSION['instalacion']);
+    header('Location:'.$ruta.'/'.$_SESSION['instalacion']);
 };
 
-*/
 ?>
 
 <div class="account-pages mt-5 mb-5">

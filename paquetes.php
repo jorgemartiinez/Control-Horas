@@ -98,10 +98,10 @@ require('connect/paquetes/getPaquetesByCliente.php');
                                         <?=$paquete['horas']?>
                                     </td>
                                     <td>
-                                        <?=$paquete['data_inici']?>
+                                        <?=date("d-m-Y", strtotime($paquete['data_inici']));?>
                                     </td>
                                     <td>
-                                        <?=$paquete['data_final']?>
+                                        <?=date("d-m-Y", strtotime($paquete['data_final']));?>
                                     </td>
 
                                     <?php if($_SESSION['usuario']['rol'] == 1){ ?>

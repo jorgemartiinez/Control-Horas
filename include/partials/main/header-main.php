@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)) {session_start(); }
 
-if(isset($_SESSION['usuario'])) {
+if(isset($_SESSION['usuario'])) { //si hemos iniciado sesión
 
     require('connect/config.php');  //config ruta absoluta
 
@@ -9,15 +9,15 @@ if(isset($_SESSION['usuario'])) {
     if (!isset($_SESSION['usuario'])) {
         header("Location:" . $GLOBALS['config']['rutaAbsoluta']);
     } else {
-        if (!isset($_SESSION['config'])) {
+        if (!isset($_SESSION['config'])) {//obtenemos la configuración del footer si todavía no está inicializada
             require('connect/config/get_config.php');
         }
     };
 
     if ($_SESSION['last_activity'] < time() - $_SESSION['expire_time']) { //ha expirado la sesión?
-        $_SESSION['expiredMail'] = $_SESSION['usuario']['email'];
+        $_SESSION['expiredMail'] = $_SESSION['usuario']['email']; //almacenamos el email para mostrarlo cuando cerremos sesión e indicar que ha expirado la mismaQ
         unset($_SESSION['usuario']);
-        $_SESSION['expired'] = 1;
+        $_SESSION['expired'] = 1; //expiramos y cerramos sesión
         header("Location:" . $GLOBALS['config']['rutaAbsoluta']);
     } else { //si no ha expirado
         $_SESSION['last_activity'] = time(); //se guarda el último momento en el que hubo actividad
@@ -26,7 +26,7 @@ if(isset($_SESSION['usuario'])) {
 //este if sirve para comprobar que no se hayan alterado las variables de sesión
     if ($_SESSION['REMOTE_ADDR'] != $_SERVER['REMOTE_ADDR'] || $_SESSION['HTTP_USER_AGENT'] != $_SERVER['HTTP_USER_AGENT']) {exit();}
 
-}else{
+}else{ //si no hay sesión
     $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
     $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
     header("Location:".$ruta);

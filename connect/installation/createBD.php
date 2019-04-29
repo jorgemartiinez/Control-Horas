@@ -10,7 +10,7 @@ if($_POST) {
     /* CREAMOS BD */
     $commands = file_get_contents('../ficheros_sql/controlhores.sql');
 
-    if ($mysqli->multi_query($commands) === TRUE) { //con multiquery realizamso las operaciones del control de horas
+    if ($mysqli->multi_query($commands) === TRUE) { //con multiquery realizamos las operaciones del control de horas
         echo "OK";
     } else {
         echo "Error";

@@ -55,7 +55,7 @@ if(isset($_POST['nombre'],$_POST['pass1'],$_POST['pass2'])) {
 
 
             session_start();
-            session_destroy();
+            session_destroy(); //finalizamos la variable sesión que servía para controlar el orden de instalación
 
         } catch (phpmailerException $e) {
             echo $e->errorMessage();

@@ -5,10 +5,10 @@
 window.addEventListener("load", function () {
 
 
-    /*mensajeCustomUnBotonSinRecargar('Instalación', 'A continuación va a proceder a instalar el panel. ' +
-        'Tenga en cuenta que si deja la instalación a medias puede tener problemas.', 'info');
+    mensajeCustomUnBotonSinRecargar('Hemos detectado que no tiene instalado nuestro panel.', 'Por lo tanto, se va a proceder con la instalación. ' +
+        'Tenga en cuenta que dejar la instalación a medias puede causar problemas.', 'info');
 
-*/
+
     Array.from(document.forms).forEach(form=>{
         form.setAttribute('novalidate','novalidate');
     });

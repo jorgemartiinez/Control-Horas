@@ -1,5 +1,5 @@
 <?php
-session_start();
+if(!isset($_SESSION)) {session_start(); }
 
 //COMPROBAMOS QUE SEA CLIENTE Y QUE SI ES CLIENTE SOLO PUEDA ACCEDER A SUS TRABAJOS, ADEM√ÅS AL SER CLIENTE NO PUEDE HABER NING√öN ID VISIBLE EN LA URL
 if($_SESSION['usuario']['rol'] == 0) {
@@ -22,24 +22,39 @@ require('connect/ficha/get_ficha.php'); //obtenemos los datos a mostrar en la p√
 
 ?>
 
-    <div id="wrapper" class="md-1">
+    <div id="wrapper" >
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
 
     <!-- Start Content-->
-    <div class="container-fluid">
-        <div class="content-page" >
-            <!-- start page title -->
+    <div class="content-page">
+        <div class="content" >
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="panel">Panel</a></li>
+                                    <li class="breadcrumb-item active">Ficha cliente</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Ficha Cliente</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+            </div>
+
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item active"><a>Ficha Cliente</a></li>
-                            </ol>
-                        </div>
-                        <h4 class="page-title">Ficha</h4>
+
                         <?php if(isset($horasData)){ ?>
 
                             <div class="card-box text-center">
@@ -129,10 +144,10 @@ require('connect/ficha/get_ficha.php'); //obtenemos los datos a mostrar en la p√
                                 <p class="text-muted">Fecha caducidad</p>
                                 <?php
                                 if($_SESSION['usuario']['rol'] == 1 ){
-                                    if($horasData['fecha_caducidad']<date('Y-m-d H:i:s')){?>
+                                    if($horasData['fecha_caducidad']<date('Y-m-d H:i:s') && $saldo >0){?>
                                         <form id="form-caducar-horas" >
                                             <input type="hidden" id="titulo" value="Horas caducadas" required>
-                                            <input type="hidden" id="horas"  value="<?= $saldo ?>" required >
+                                            <input type="hidden" id="horas"  value="<?= $saldoFormatoBD ?>" required >
                                             <input type="hidden" id="descripcion" value="Trabajo creado para agotar el saldo del usuario <?= $horasData['nom'] ?>.
                                             El trabajo aparecer√° como completado y marcado con un 1 en su campo 'caducada' " required >
                                             <input type="hidden" id="cliente" value="<?= $_GET['cliente']?>">

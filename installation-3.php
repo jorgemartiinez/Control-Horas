@@ -1,7 +1,7 @@
-<?php include('include/partials/install/header-install.php'); session_start();
-/*if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
-    header('Location:'.$ruta.$_SESSION['instalacion']);
-};*/
+<?php include('include/partials/install/header-install.php');
+if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
+    header('Location:'.$ruta.'/'.$_SESSION['instalacion']);
+};
 ?>
 
 
@@ -31,11 +31,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="pass-1">Contraseña</label>
-                                <input class="form-control" type="password" id="pass-1" placeholder="Contraseña" onkeyup="comprobarCampo(this)" required>
+                                <input class="form-control" type="password" id="pass-1" placeholder="Contraseña" onkeyup="comprobarCampo(this)" minlength="6" required>
                             </div>
                             <div class="form-group">
                                 <label for="pass-2">Repetir contraseña </label>
-                                <input class="form-control" type="password" id="pass-2" placeholder="Repita su contraseña" onkeyup="comprobarCampo(this)" required>
+                                <input class="form-control" type="password" id="pass-2" placeholder="Repita su contraseña" onkeyup="comprobarCampo(this)" minlength="6" required>
                                 <small class="form-text text-info">Contraseña para acceder al panel con el email introducido.</small>
                             </div>
                             <div class="form-group mb-0 text-center">

@@ -1,11 +1,10 @@
 <?php include('include/partials/install/header-install.php');
 
-session_start();
 if(!isset($_SESSION['instalacion'])) {
-    $_SESSION['instalacion'] = 'installation-1';
+    $_SESSION['instalacion'] = 'installation-1'; //inicializamos variable de sesión para comprobar que se ejecuta la instalación en el orden deseado
 }else{
-    if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
-        header('Location:'.$ruta.$_SESSION['instalacion']);
+    if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){ //si no estamos en la página que toca de la instalación
+        header('Location:'.$ruta.'/'.$_SESSION['instalacion']);
     }
 }
 ?>

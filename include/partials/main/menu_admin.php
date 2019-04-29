@@ -41,7 +41,7 @@ require('connect/paquetes/get_horas_caducadas.php');
 if(isset($resultados) && count($resultados)){
     foreach($resultados as $cliente ){ //COMPROBAREMOS QUE ESTÉ ABIERTA LA PÁGINA EN CUESTIÓN PARA AÑADIR LA CLASE ACTIVA
 
-        if($cliente['rol'] == 0){?>
+        if($cliente['rol'] == 0 && $cliente['estado']==1){?>
             <?php if(isset($_GET['cliente'])&& $_GET['cliente']==$cliente['id']){?>
                 <li class="active" style="cursor:pointer">
                 <a class="active" >
@@ -50,7 +50,7 @@ if(isset($resultados) && count($resultados)){
                 <a style="cursor:pointer">
             <?php } ?>
             <i class='fe-user'></i>
-            <span > <?php echo $cliente['nom']; if(!in_array($cliente['id'], $horasCaducadas)){ ?> <i class="fe-clock text-danger"></i><?php }?></span>
+            <span > <?php echo $cliente['nom']; if(isset($horasCaducadas) &&!in_array($cliente['id'], $horasCaducadas)){ ?> <i class="fe-clock text-danger"></i><?php }?></span>
             <span class='menu-arrow'></span>
             </a>
             <ul class='nav-second-level' aria-expanded='false'>

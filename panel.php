@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('include/partials/main/header-main.php');
 include('include/partials/main/navbar-main.php');
 ?>

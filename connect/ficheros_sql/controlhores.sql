@@ -120,7 +120,6 @@ CREATE TABLE IF NOT EXISTS `password_reset` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nom` char(50) NOT NULL,
-  `imatge` char(50) NOT NULL,
   `rol` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '0->customer 1->admin',
   `estado` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '0-> Bloqueado 1->Activado',
   `email` char(100) NOT NULL,

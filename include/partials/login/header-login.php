@@ -11,11 +11,17 @@ if(!filesize('connect/config.php') || !filesize('connect/BD.php')){
     }else{
         $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
     }
+    session_destroy();
+
     header( 'Location:'.$ruta . '/installation-1');
     exit();
 }
 
-require ('connect/config.php'); //archivo config
+require('connect/config.php'); //archivo config
+
+if(isset($_SESSION['instalacion'])){
+    header("Location:".$GLOBALS['config']['rutaAbsoluta'].$_SESSION['instalacion']);
+}
 
 //si has iniciado sesión, entrarás en el panel
 if(isset($_SESSION['usuario'])){ header("Location:".$GLOBALS['config']['rutaAbsoluta'].'panel'); }

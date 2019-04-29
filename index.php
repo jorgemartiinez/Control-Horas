@@ -47,9 +47,7 @@
                     <div class="col-12">
                         <p> <a href="recuperar-password" class="text-white ml-1">¿Has olvidado tu contraseña?</a></p>
                     </div> <!-- end col -->
-                    <div class="col-12">
-                        <p> <a href="installation-1" class="text-white ml-1">¿Quieres instalar el panel? <br/> Te dejo, pero no lo rompas por favor :)</a></p>
-                    </div> <!-- end col -->
+                   
                 </div>
                 <!-- end row -->
             </div> <!-- end col -->

@@ -28,7 +28,7 @@ ORDER BY data_inici DESC");
     while($registro = $result->fetch_assoc() ){
 
         $dades['id'] = $registro['id'];
-        $dades['titulo'] = ($registro['titulo'] != '0') ? $registro['titulo'] : mb_substr($registro['descripcio'], 0 ,25).'...';
+        $dades['titulo'] = ($registro['titulo'] != '0' && $registro['titulo'] != '') ? $registro['titulo'] : mb_substr($registro['descripcio'], 0 ,25).'...';
         // si no recibimos título de la tarea, se cogen 25 carácteres de la descripción
 
         $dades['descripcio'] =  $registro['descripcio'];
