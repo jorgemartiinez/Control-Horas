@@ -109,7 +109,9 @@ require('connect/paquetes/getPaquetesByCliente.php');
                                             <a onclick='delPaquete(<?= $paquete['id'] ?>)' class="action-icon"> <i class="mdi mdi-delete"></i></a>
                                         </td>
                                         </tr>
-                                    <?php }} } ?>
+                                    <?php }
+                                }
+                            } ?>
                             </tbody>
                         </table>
                     </div> <!-- end card-box-->

@@ -1,10 +1,12 @@
 <?php
 if(!isset($_SESSION)) {session_start(); }
-
+if(isset($_SESSION['instalacion'])){
+    $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+    $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
+    header("Location:".$ruta.$_SESSION['instalacion']);
+}
 if(isset($_SESSION['usuario'])) { //si hemos iniciado sesión
-
     require('connect/config.php');  //config ruta absoluta
-
 //si no has iniciado sesión, no podrás entrar al panel y te redigirá a login
     if (!isset($_SESSION['usuario'])) {
         header("Location:" . $GLOBALS['config']['rutaAbsoluta']);

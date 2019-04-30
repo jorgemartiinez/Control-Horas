@@ -1,1 +1,1 @@
-<?php const USERNAME = 'jorge@pandacreatiu.com';const PASSWORD = '7NSd4uZb';const FROM = 'panda creatiu';const PROTOCOLO = 'tls';const HOST = 'mail.pandacreatiu.com';const OPCIONESSMTP = '1';$ruta = 'http://control.pandacreatiu.com/v2/';$GLOBALS['config']['rutaAbsoluta'] = $ruta; ?>
+<?php const USERNAME = 'jorge@pandacreatiu.com';const PASSWORD = '7NSd4uZb';const FROM = 'panda creatiu';const PROTOCOLO = 'tls';const HOST = 'mail.pandacreatiu.com';const OPCIONESSMTP = '1';$url = 'http://control.pandacreatiu.com/v2/';$GLOBALS['config']['rutaAbsoluta'] = $url; ?>

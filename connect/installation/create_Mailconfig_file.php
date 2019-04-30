@@ -23,7 +23,7 @@ if(isset($_POST['host'],$_POST['email'],$_POST['nombre'],$_POST['contrasenya'],
         if($resultado == 'OK'){ //si se envía, creamos el archivo de configuración
             echo "OK";
             file_put_contents('../config.php',
-                "<?php const USERNAME = '$email';const PASSWORD = '$contrasenya';const FROM = '$nombre';const PROTOCOLO = '$protocoloSeguridad';const HOST = '$host';const OPCIONESSMTP = '$opcionesSMTP';\$ruta = '$uri';\$GLOBALS['config']['rutaAbsoluta'] = \$ruta; ?>");
+                "<?php const USERNAME = '$email';const PASSWORD = '$contrasenya';const FROM = '$nombre';const PROTOCOLO = '$protocoloSeguridad';const HOST = '$host';const OPCIONESSMTP = '$opcionesSMTP';\$url= '$uri';\$GLOBALS['config']['rutaAbsoluta'] = \$url; ?>");
 
             session_start();
             $_SESSION['instalacion'] = 'installation-3'; //pasamos al siguiente paso de la instalación

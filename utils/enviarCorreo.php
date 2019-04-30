@@ -10,6 +10,7 @@ const SMTP = "smtp";
 const TIMEOUT = 30;
 const CHARSET = "UTF-8";
 
+require ('../../connect/config.php');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

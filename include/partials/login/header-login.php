@@ -6,21 +6,18 @@ if(!filesize('connect/config.php') || !filesize('connect/BD.php')){
     $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
 
     if(strpos($_SERVER['PHP_SELF'], 'recuperar-password') == false && strpos($_SERVER['PHP_SELF'], 'reset') == false && strpos($_SERVER['PHP_SELF'], 'panel') == false){
-        $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']). basename(dirname($_SERVER['PHP_SELF']));
-
+        $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']). basename(dirname($_SERVER['PHP_SELF'])).'/';
     }else{
-        $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
+        $ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']) .'/';
     }
-    session_destroy();
-
-    header( 'Location:'.$ruta . '/installation-1');
+    header( 'Location:'.$ruta . 'installation-1');
     exit();
 }
-
 require('connect/config.php'); //archivo config
 
 if(isset($_SESSION['instalacion'])){
     header("Location:".$GLOBALS['config']['rutaAbsoluta'].$_SESSION['instalacion']);
+    exit();
 }
 
 //si has iniciado sesión, entrarás en el panel

@@ -1,15 +1,16 @@
 <?php
 session_start();
 clearstatcache();
-
 //obtenemos la ruta
 $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
-$ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
+$ruta = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/';
+
+if(isset($_SESSION['usuario'])){header("Location:".$ruta.'panel'); exit();}
 
 //comprobamos si existen los ficheros y no hay una instalación en proceso
-if(filesize('connect/config.php') && filesize('connect/BD.php') && !isset($_SESSION['instalacion'])) {
-    header("Location:".$ruta);
-}
+if(filesize('connect/config.php') && filesize('connect/BD.php') && !isset($_SESSION['instalacion'])) {header("Location:".$ruta);exit();}
+
+
 
 ?>
 

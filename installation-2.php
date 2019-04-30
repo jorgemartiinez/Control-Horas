@@ -1,7 +1,7 @@
 <?php include('include/partials/install/header-install.php');
 
 if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
-    header('Location:'.$ruta.'/'.$_SESSION['instalacion']);
+    header('Location:'.$ruta.$_SESSION['instalacion']);
 };
 
 ?>

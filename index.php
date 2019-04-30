@@ -14,7 +14,7 @@
                         </div>
                         <!-- Alerta cuando haya expirado la sesión -->
                         <?php if(!isset($_SESSION)) {session_start();}
-                        if(isset($_SESSION['expired']) && $_SESSION['expired'] == 1){ ?>
+                        if(isset($_SESSION['expired']) && $_SESSION['expired'] == 1 && isset($_SESSION['expiredMail'])){ ?>
                         <p class="text-danger text-center mb-4 mt-3 font-16">
                             <i class="fe-alert-circle font-20"></i><strong>&nbsp;¡Tu sesión ha expirado por inactividad!</strong>
                         </p>
