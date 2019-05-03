@@ -100,8 +100,8 @@ if(isset($_SESSION['usuario'])) { //si hemos iniciado sesión
                                 </a>
                             <?php }
                         }else{ ?>
-                        <p class="text-muted mb-0 mt-1 text-center"><small> En este momento no tiene ningún trabajo pendiente.</small>
-                        </p>
+                            <p class="text-muted mb-0 mt-1 text-center"><small> En este momento no tiene ningún trabajo pendiente.</small>
+                            </p>
                         <?php } ?>
                     </div>
                 </div>
@@ -139,18 +139,22 @@ if(isset($_SESSION['usuario'])) { //si hemos iniciado sesión
             </div>
         </li>
 
-        <li class="dropdown notification-list">
-            <a href="configuracion" class="nav-link right-bar-toggle waves-effect">
-                <i class="fe-settings noti-icon"></i>
-            </a>
-        </li>
+        <?php if($_SESSION['usuario']['rol']==1){ ?>
+            <li class="dropdown notification-list">
+                <a href="configuracion" class="nav-link right-bar-toggle waves-effect">
+                    <i class="fe-settings noti-icon"></i>
+                </a>
+            </li>
+        <?php } ?>
     </ul>
 
     <!-- LOGO -->
     <div class="logo-box">
         <a href="panel" class="logo text-center">
             <span class="logo-lg">
+            <?php if($_SESSION['config']['logo'] != ''){ ?>
                 <img src="uploads/logo/<?= $_SESSION['config']['logo'] ?>" alt="Logo" height="35">
+            <?php } ?>
             </span>
             <span class="logo-sm">
                 <img src="assets/images/favicon.ico" alt="Favicon" height="24">

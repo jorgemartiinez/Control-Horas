@@ -77,7 +77,7 @@ function updateConfig(event) {
             contentType: false, // importante
 
             success: function (data) {
-                if(data == 'OK') {
+                if(data.includes('OK')) {
                     mensajeCustomUnBoton('Operación realizada correctamente', 'Configuración actualizada correctamente.', 'success');
                 }else if(data == 'error_formato'){ //formato incorrecto
                     mensajeCustomUnBoton('Error formato', 'El logo subido no es una imagen válida. Los formatos permitidos son png, jpg y jpeg. ', 'error')

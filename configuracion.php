@@ -1,6 +1,9 @@
 <?php
 include('include/partials/main/header-main.php');
 include('include/partials/main/navbar-main.php');
+
+//SÓLO PUEDE ACCEDER EL ADMIN
+if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAbsoluta']);}
 ?>
 
 <!-- ============================================================== -->
@@ -38,7 +41,7 @@ include('include/partials/main/navbar-main.php');
                         <div class="col-12">
                             <h4 class="header-title">Configuración</h4>
                             <p class="sub-header">
-                                Desde aquí usted podrá personalizar el panel de administración. Las opciones disponibles son; editar el logo que se muestra en la esquina superior izquierda, la información que se muestra en el footer y cambiar la configuración de su hosting de correo electrónico.
+                                Desde aquí usted podrá personalizar el panel de administración. Las opciones disponibles son; editar el logo que se muestra en la esquina superior izquierda, la información que se muestra en el footer (tanto en la página como en los emails) y cambiar la configuración de su hosting de correo electrónico.
                             </p>
                         </div>
 
@@ -84,22 +87,22 @@ include('include/partials/main/navbar-main.php');
                                 <form id="form-email-install">
                                     <div class="form-group">
                                         <label for="host">Host correo</label>
-                                        <input class="form-control" type="text" id="host" placeholder="host.dirección.dominio" autofocus onkeyup="comprobarCampo(this)" required>
+                                        <input class="form-control" type="text" id="host" placeholder="host.dirección.dominio" autofocus onkeyup="comprobarCampo(this)" value="<?=HOST ?>" required>
                                         <small class="form-text text-info ">Dirección de hosting de su proveedor de correo. Ejemplo: smtp.gmail.com</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
-                                        <input class="form-control" type="text" id="nombre" onkeyup="comprobarCampo(this)" placeholder="Nombre" required>
+                                        <input class="form-control" type="text" id="nombre" onkeyup="comprobarCampo(this)" value="<?= FROM ?>" placeholder="Nombre" required>
                                         <small class="form-text text-info">Nombre que aparecerá cuando envíe un correo electrónico.</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="correo">Correo electrónico</label>
-                                        <input class="form-control" type="text" id="correo" placeholder="email@email.com" autofocus onkeyup="comprobarCampo(this)" required>
+                                        <input class="form-control" type="text" id="correo" placeholder="email@email.com" value="<?= USERNAME ?>" autofocus onkeyup="comprobarCampo(this)" required>
                                         <small class="form-text text-info">Dirección de correo con la que enviará los correos desde el panel. Será visible para todos sus clientes.</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="pass">Contraseña correo</label>
-                                        <input class="form-control" type="password" id="pass" onkeyup="comprobarCampo(this)" <?php if(isset($_POST['pass'])){?> value="<?=$_POST['pass']?>" <?php } ?>
+                                        <input class="form-control" type="password" id="pass" onkeyup="comprobarCampo(this)" value="<?= PASSWORD ?>"
                                                required >
                                         <small class="form-text text-info">Contraseña de la cuenta de correo indicada en el campo anterior.</small>
                                     </div>
@@ -111,8 +114,8 @@ include('include/partials/main/navbar-main.php');
                                     <div class='form-group'>
                                         <label for='protocoloSeguridad'>Protocolo Seguridad</label>
                                         <select id='protocoloSeguridad' class='form-control' required >
-                                            <option value='tls' selected name="protocoloSeguridad">TLS</option>
-                                            <option value='ssl' name="protocoloSeguridad">SSL</option>
+                                            <option value='tls' name="protocoloSeguridad" <?php if(PROTOCOLO == 'tls'){ ?> selected <?php } ?>>TLS</option>
+                                            <option value='ssl' name="protocoloSeguridad" <?php if(PROTOCOLO == 'ssl'){ ?> selected <?php } ?>>SSL</option>
                                         </select>
                                         <small class='form-text text-info'>Elija el protocolo de seguridad compatible con su correo electrónico.</small>
                                     </div>
@@ -120,14 +123,14 @@ include('include/partials/main/navbar-main.php');
                                     <div class="form-group">
                                         <label for="opciones">Opciones SMTP</label>
                                         <div class="radio radio-success mb-2">
-                                            <input type="radio" name="radio" id="radio4" value="1" required  checked>
+                                            <input type="radio" name="radio" id="radio4" value="1" required <?php if(OPCIONESSMTP == 1){ ?> checked <?php } ?>>
                                             <label for="radio4" class="text-success">
                                                 Si
                                             </label>
                                         </div>
 
                                         <div class="radio radio-danger mb-2">
-                                            <input type="radio" name="radio" id="radio6" value="0">
+                                            <input type="radio" name="radio" id="radio6" value="0" <?php if(OPCIONESSMTP == 0){ ?> checked <?php } ?>>
                                             <label for="radio6" class="text-danger">
                                                 No
                                             </label>

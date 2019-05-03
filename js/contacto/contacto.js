@@ -12,18 +12,17 @@ function enviarContacto(event) {
     event.preventDefault();
 
     let nombre = document.getElementById('nombre');
-
     let email = document.getElementById('email');
-
     let descripcion = document.getElementById('descripcion');
+    let datosContacto = document.getElementById('datos-contacto');
 
-    let validation = comprobarCampo(nombre) + comprobarCampo(email) + comprobarCampo(descripcion);
+    let validation = comprobarCampo(nombre) + comprobarCampo(email) + comprobarCampo(descripcion)+ comprobarCampo(datosContacto);
 
-    if(validation ==3){
+    if(validation==4){
 
         $('#enviarContacto').prop('disabled', true); //desactivamos el botón
 
-        let dataString = 'nombre=' + nombre.value + '&email=' + email.value + '&descripcion=' + descripcion.value ;
+        let dataString = 'nombre=' + nombre.value + '&email=' + email.value + '&descripcion=' + descripcion.value + '&datosContacto=' + datosContacto.value ;
 
         $.ajax({
             type: "POST",

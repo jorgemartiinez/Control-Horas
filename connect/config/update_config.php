@@ -94,7 +94,7 @@ SET valor = CASE
          END
 WHERE clave IN ('footer-direccion','footer-empresa','footer-email')");
 
-            $stmt->bind_param('sss', $nombre, $direccion, $email);
+            $stmt->bind_param('sss', $direccion,$nombre , $email);
 
             if ($stmt->execute()) {
                 echo "OK";
