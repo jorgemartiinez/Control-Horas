@@ -165,13 +165,8 @@ if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAb
     <!-- Validación formularios -->
     <script src="js/validaciones/form-validation.js" type="text/javascript"></script>
 
-
     <!-- Instalacion fichero configuración js -->
     <script src="js/installation/installation-2.js"></script>
-
-    <script>
-        document.getElementById('logo-empresa').files[0] = new File([new Blob()], "uploads/logo/logo-light.png", {type:"image/png"});
-    </script>
 
     <?php include('include/partials/main/footer-main.php');?>
 

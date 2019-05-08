@@ -2,6 +2,7 @@
 session_start();
 
 clearstatcache();
+//si no existen los archivos se redirigirá al proceso de instalación
 if(!filesize('connect/config.php') || !filesize('connect/BD.php')){
     $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
 

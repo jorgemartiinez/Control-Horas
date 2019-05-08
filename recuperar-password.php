@@ -8,9 +8,9 @@
 
                     <div class="card-body p-4">
 
-                        <div class="text-center w-75 m-auto">
+                        <div class="text-center w-95 m-auto">
                             <a href="index">
-                                <span><img src="assets/images/logo-dark.png" alt="" height="22"></span>
+                                <span><img src="assets/images/logo-dark.png" alt="" height="42"></span>
                             </a>
                             <p class="text-muted mb-4 mt-3">Introduzca su correo electrónico y le enviaremos un email con un enlace que servirá para cambiar su contraseña.</p>
                         </div>

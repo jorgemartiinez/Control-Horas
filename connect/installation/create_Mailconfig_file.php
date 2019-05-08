@@ -17,7 +17,7 @@ if(isset($_POST['host'],$_POST['email'],$_POST['nombre'],$_POST['contrasenya'],
     require ('../../utils/enviarCorreo.php');
 
     try {
-        //nos enviamos un correo
+        //nos enviamos un correo, utilizando la función de enviar correo de prueba que devolverá OK si se ha enviado correctamente
         $resultado = enviarCorreoPrueba($host, $email, $nombre, $opcionesSMTP, $protocoloSeguridad, $contrasenya);
 
         if($resultado == 'OK'){ //si se envía, creamos el archivo de configuración

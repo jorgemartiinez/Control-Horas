@@ -46,12 +46,7 @@ function initCorreo($asunto, $to, $toName){
 
         $mail->SMTPSecure = PROTOCOLO;
 
-
-
-            $mail->Port = 587;
-
-
-
+        $mail->Port = 587;
         $mail->CharSet = CHARSET;
         $mail->SetFrom(USERNAME, FROM);
         $mail->AddAddress($to, $toName);
