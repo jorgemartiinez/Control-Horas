@@ -20,8 +20,7 @@
             <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; max-width:600px; font-size:12px; margin-top:20px;">
 
                 <tr>
-
-                    <td align="center">
+                    <td align="right">
                         <p style="color:#fff; background-color:#000; padding:10px 0; width:215px; font-size:14px; text-align:center;">
                             Control de <strong>horas de trabajo</strong>
                         </p>
@@ -50,9 +49,9 @@
 
                     Si ha recibido este email quiere decir que está intentando instalar nuestro panel de control de horas y su correo ha sido testeado correctamente. <br /><br />
 
- Le agradecemos su confianza en nuestro trabajo.<br /><br />
+                    Le agradecemos su confianza en nuestro trabajo.<br /><br />
 
-                        Saludos.<br />
+                    Saludos.<br />
                     </td>
                 </tr>
 

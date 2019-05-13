@@ -45,9 +45,7 @@ function createMailConfig(){
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                mensajeGenericoError();
-                alert(xhr.status);
-                alert(thrownError);
+                mensajeCustomUnBotonSinRecargar('Error', 'No se ha podido establecer la conexión con su hosting de correo electrónico. Vuelva a intentarlo.', 'error');
             }
         });
 

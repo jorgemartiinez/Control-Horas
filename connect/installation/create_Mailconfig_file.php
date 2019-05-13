@@ -12,8 +12,6 @@ if(isset($_POST['host'],$_POST['email'],$_POST['nombre'],$_POST['contrasenya'],
     $opcionesSMTP = htmlspecialchars($_POST['opcionesSMTP']);
     $uri = $_POST['uri'].'/';
 
-    require ('../config.php');
-
     require ('../../utils/enviarCorreo.php');
 
     try {
@@ -25,7 +23,6 @@ if(isset($_POST['host'],$_POST['email'],$_POST['nombre'],$_POST['contrasenya'],
             file_put_contents('../config.php',
                 "<?php const USERNAME = '$email';const PASSWORD = '$contrasenya';const FROM = '$nombre';const PROTOCOLO = '$protocoloSeguridad';const HOST = '$host';const OPCIONESSMTP = '$opcionesSMTP';\$url= '$uri';\$GLOBALS['config']['rutaAbsoluta'] = \$url; ?>");
 
-            session_start();
             $_SESSION['instalacion'] = 'installation-3'; //pasamos al siguiente paso de la instalación
 
         }else{

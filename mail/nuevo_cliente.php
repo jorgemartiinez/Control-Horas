@@ -24,7 +24,7 @@
                 <tr>
                     <td style="width:320px;">
 
-                        <?php if($_SESSION['config']['logo'] != ''){ ?>
+                        <?php if(isset($_SESSION['config']['logo']) && $_SESSION['config']['logo'] != ''){ ?>
                             <img src="<?=$GLOBALS['config']['rutaAbsoluta'].'/uploads/logo/'.$_SESSION['config']['logo'] ?>" alt="Logo Empresa" height="35">
                         <?php }?>
                     </td>
@@ -93,8 +93,8 @@
             <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; font-size:10px; margin-top:2px;">
 
                 <tr>
-                    <td align="left" width="300"><a href="mailto: <?php if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];}?>" style="color:#36a9e1; margin-left:20px;"> <?php if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];} ?></a></td>
-                    <td align="right" style="color:#585757;"> <?php if($_SESSION['config']['footer-direccion']!='Dirección Empresa' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-direccion'];}?></td>
+                    <td align="left" width="300"><a href="mailto: <?php if(isset($_SESSION['config'])){ if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];}?>" style="color:#36a9e1; margin-left:20px;"> <?php if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];}} ?></a></td>
+                    <td align="right" style="color:#585757;"> <?php if(isset($_SESSION['config'])){ if($_SESSION['config']['footer-direccion']!='Dirección Empresa' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-direccion'];}}?></td>
                 </tr>
 
             </table>

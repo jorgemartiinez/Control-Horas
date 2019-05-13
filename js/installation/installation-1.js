@@ -1,6 +1,6 @@
 'use strict';
 
-/* FICHERO QUE SERVIRÁ PARA GESTIONAR EL ARCHIVO  */
+/* FICHERO QUE SERVIRÁ PARA GESTIONAR EL ARCHIVO DE CONFIGURACIÓN DE BD  */
 
 window.addEventListener("load", function () {
 
@@ -48,9 +48,7 @@ function createConfigBD() {
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                mensajeGenericoError();
-                alert(xhr.status);
-                alert(thrownError);
+                mensajeCustomUnBotonSinRecargar('Error', 'No se ha podido establecer la conexión con la BD. Vuelva a intentarlo.', 'error');
             }
         });
     }

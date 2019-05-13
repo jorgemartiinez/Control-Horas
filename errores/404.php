@@ -85,7 +85,7 @@
 
                 <div class="row mt-3">
                     <div class="col-12 text-center">
-                        <p class="text-white-50">Return to <a href="index.html" class="text-white ml-1"><b>Home</b></a></p>
+                        <p class="text-white-50">Return to <a href="index" class="text-white ml-1"><b>Home</b></a></p>
                     </div> <!-- end col -->
                 </div>
                 <!-- end row -->

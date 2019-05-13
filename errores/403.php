@@ -28,7 +28,7 @@
                     <div class="card-body p-4">
 
                         <div class="text-center">
-                            <a href="index.html">
+                            <a href="index">
                                 <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
                             </a>
                         </div>
@@ -37,7 +37,7 @@
                             <h1 class="text-error text-danger">403</h1>
                             <h3 class="mt-3 mb-2 text-danger" >Acceso denegado</h3>
 
-                            <a href="/" class="btn btn-success waves-effect waves-light">Volver a inicio</a>
+                            <a href="index" class="btn btn-success waves-effect waves-light">Volver a inicio</a>
                         </div>
 
                     </div> <!-- end card-body -->

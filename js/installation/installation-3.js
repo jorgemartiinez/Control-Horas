@@ -64,8 +64,6 @@ function finishConfig(){
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
                             mensajeGenericoError();
-                            alert(xhr.status);
-                            alert(thrownError);
                         }
                     });
                 }

@@ -87,7 +87,7 @@ if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAb
                                 <form id="form-email-install">
                                     <div class="form-group">
                                         <label for="host">Host correo</label>
-                                        <input class="form-control" type="text" id="host" placeholder="host.dirección.dominio" autofocus onkeyup="comprobarCampo(this)" value="<?=HOST ?>" required>
+                                        <input class="form-control" type="text" id="host" placeholder="host.dirección.dominio" autofocus onkeyup="comprobarCampo(this)" value="<?= HOST ?>" required>
                                         <small class="form-text text-info ">Dirección de hosting de su proveedor de correo. Ejemplo: smtp.gmail.com</small>
                                     </div>
                                     <div class="form-group">
