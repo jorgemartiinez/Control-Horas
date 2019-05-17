@@ -69,7 +69,7 @@
                         el enlace expirará en un <strong>máximo de 24 horas</strong>.<br/><br/>
 
                         <strong>Enlace de acceso:</strong><br />
-                        <a href="http://control.pandacreatiu.com/v2/reset?token=<?php echo $token ?>" style="color:#36a9e1;">Restablecer contraseña</a><br /><br />
+                        <a href="<?=$GLOBALS['config']['rutaAbsoluta']?>reset?token=<?php echo $token ?>" style="color:#36a9e1;">Restablecer contraseña</a><br /><br />
 
                         Le agradecemos su confianza en nuestro trabajo.<br /><br />
 

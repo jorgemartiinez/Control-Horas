@@ -25,7 +25,7 @@ if(!isset($_GET['rol']) || !is_numeric($_GET['rol'])||$_GET['rol'] > 1){header("
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="panel">Panel</a></li>
+                                    <li class="breadcrumb-item"><a href="panel">Panel </a></li>
                                     <li class="breadcrumb-item"><a>CRM</a></li>
                                     <li class="breadcrumb-item active"><?php echo ($_GET['rol']) ? "Administradores" : "Clientes" ?></li>
                                 </ol>

@@ -70,7 +70,7 @@
                     <strong>Contraseña:</strong> <?php echo $password?><br /><br />
 
                      Enlace de acceso:<br />
-                    <a href="http://control.pandacreatiu.com" style="color:#36a9e1;">http://control.pandacreatiu.com</a><br /><br />
+                    <a href="<?=$GLOBALS['config']['rutaAbsoluta']?>" style="color:#36a9e1;"><?=$GLOBALS['config']['rutaAbsoluta']?></a><br /><br />
 
                     Le agradecemos su confianza en nuestro trabajo.<br /><br />
 
