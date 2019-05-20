@@ -21,8 +21,8 @@ require('connect/trabajos/get_trabajosByCliente.php');
 
 
 ?>
-<!-- Begin page -->
-<div id="wrapper">
+    <!-- Begin page -->
+    <div id="wrapper">
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
@@ -166,22 +166,27 @@ require('connect/trabajos/get_trabajosByCliente.php');
 
     </div> <!-- content -->
 
+    <button style="display:none" type="button" class="btn btn-blue waves-effect waves-light" data-toggle="modal" data-target="#full-width-modal" id="abrir_modal_descripcion">Full width Modal</button>
 
-    <a href="#show-descripcion-modal" class="btn btn-danger waves-effect waves-light invisible" data-animation="fadein" data-plugin="custommodal" data-overlaycolor="#38414a" id="abrir_modal_descripcion"> </a>
-
-    <div class='modal-demo' id='show-descripcion-modal'  >
-        <button type='button' class='close' onclick='Custombox.modal.close();'>
-            <span>&times;</span><span class='sr-only'>Close</span>
-        </button>
-        <h4 class="custom-modal-title" id="show-titulo-text">Título trabajo</h4>
-        <div class='custom-modal-text text-left' >
-            <span><strong>Descripción: </strong> <p id="show-descripcion-text"></p></span>
-            <span><strong>Creado el </strong> <p id="show-fecha-text"></p></span>
-        </div>
-        <div class="text-right">
-            <button type="button" class="btn btn-danger waves-effect waves-light m-l-10" id="close-show-descripcion">Salir</button>
-        </div>
-    </div>
+    <div id='full-width-modal' class="modal fade" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-full">
+            <div class="modal-content" >
+                <div class="modal-header" style="background-color: #323a46;">
+                    <h4 style="color:#fff" id="show-titulo-text">Título trabajo</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick='Custombox.modal.close();' style="color:#fff">×</button>
+                </div>
+                <div class="modal-body">
+                    <h4>Descripción</h4>
+                    <p id="show-descripcion-text">Descripción trabajo.</p>
+                    <h4>Creado</h4>
+                    <p id="show-fecha-text">Fecha creación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal" id="close-show-descripcion">Cerrar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <!-- Scripts -->
     <!-- Validación formularios -->
@@ -191,5 +196,4 @@ require('connect/trabajos/get_trabajosByCliente.php');
     <!-- Operaciones con trabajos -->
     <script src="js/trabajos/trabajos.js" type="text/javascript"></script>
 
-    <?php include('include/partials/main/footer-main.php');?>
-
+<?php include('include/partials/main/footer-main.php');?>

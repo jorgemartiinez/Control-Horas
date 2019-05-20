@@ -33,14 +33,21 @@ function showDescripcion(id) {
                 titulo.innerHTML = trabajo.titulo:
                 titulo.innerHTML = trabajo.descripcio.substr(0,30)+'...';
 
-           descripcion.innerHTML = trabajo.descripcio;
+            descripcion.innerHTML = trabajo.descripcio;
 
 
-           let fechaSinFormatear = new Date(trabajo.data_inici);
+            let fechaSinFormatear = new Date(trabajo.data_inici);
 
-           fecha.innerHTML = fechaSinFormatear.toLocaleDateString();
+            fecha.innerHTML = fechaSinFormatear.toLocaleDateString();
 
-           $('#abrir_modal_descripcion').trigger('click'); //abrimos modal
+            $('#fecha-final-modal').remove();
+
+            if(trabajo.data_final != '0000-00-00 00:00:00') {
+                let fechaFinalFormateada = new Date(trabajo.data_final);
+                $('.modal-body').append("<div id='fecha-final-modal'><h4>Finalizado</h4> <p>"+fechaFinalFormateada.toLocaleDateString()+"</p></div>")
+            }
+
+            $('#abrir_modal_descripcion').trigger('click'); //abrimos modal
         },
         error: function (xhr, ajaxOptions, thrownError) {
             mensajeGenericoError();

@@ -54,7 +54,7 @@ SET valor = CASE
          END
 WHERE clave IN ('logo','footer-direccion','footer-empresa','footer-email')");
 
-                    $stmt->bind_param('ssss', $newfilename,$nombre, $direccion, $email);
+                    $stmt->bind_param('ssss', $newfilename,$direccion, $nombre, $email);
 
                     if ($stmt->execute()) { //se actualiza correctamente, ahora procedemos a guardar el logo y la info en sesión
                         session_start();

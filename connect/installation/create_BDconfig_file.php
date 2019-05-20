@@ -9,7 +9,6 @@ if(isset($_POST['hostBD'],$_POST['usuarioBD'],$_POST['nombreBD'],$_POST['contras
     $contrasenyaBD = htmlspecialchars($_POST['contrasenyaBD']);
     $estadoQuery = false;
 
-    //creamos un objeto para comprobar la conexión con los datos recibidos
     $mysqli = new mysqli($hostBD , $usuarioBD, $contrasenyaBD, $nombreBD);
     $mysqli->set_charset('utf8');
 
