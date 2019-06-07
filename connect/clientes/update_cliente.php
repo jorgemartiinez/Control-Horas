@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 require ('../BD.php');
 require ('../../utils/myHelpers.php');
+            session_start();	
 
 if(isset($_POST['nombre'],$_POST['email'])) {
 
@@ -27,7 +28,6 @@ if(isset($_POST['nombre'],$_POST['email'])) {
 
         }else{//si no recibimos el rol, entonces querrá decir que el usuario estará actualizando información desde su perfil
 
-            session_start();
             $id = $_SESSION['usuario']['id'];
 
             /* REALIZAMOS EL UPDATE */
@@ -39,11 +39,14 @@ if(isset($_POST['nombre'],$_POST['email'])) {
 
         if ($stmt->execute()) {
 
-            if ( $sesion == 1) { //si sesión es 1 actualizamos la información en sesión, ya que vendrá desde el perfil
-                session_start();
+            if ($sesion == 1) { //si sesión es 1 actualizamos la información en sesión, ya que vendrá desde el perfil
                 $_SESSION['usuario']['nom'] = $nombre;
                 $_SESSION['usuario']['email'] = $email;
-            }
+            }else if($sesion != 1 && $id == $_SESSION['usuario']['id']){ //si como admin te editas a ti mismo
+            	$_SESSION['usuario']['nom'] = $nombre;
+            	$_SESSION['usuario']['email'] = $email;
+            	$_SESSION['usuario']['rol'] = $rol;
+            }	
 
             echo "OK";
         } else {

@@ -153,7 +153,7 @@ if(isset($_SESSION['usuario'])) { //si hemos iniciado sesión
         <a href="panel" class="logo text-center">
             <span class="logo-lg">
             <?php if($_SESSION['config']['logo'] != ''){ ?>
-                <img src="uploads/logo/<?= $_SESSION['config']['logo'] ?>" alt="Logo" height="35">
+                <img src="uploads/logo/<?= $_SESSION['config']['logo'] ?>" alt="Logo" height="45">
             <?php } ?>
             </span>
             <span class="logo-sm">

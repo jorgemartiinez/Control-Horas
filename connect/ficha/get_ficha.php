@@ -16,9 +16,9 @@ if(isset($_GET['cliente'])) {
         /* CON ESTA OPERACIÓN OBTENDREMOS LA SUMA DE TODAS LOS PAQUETES, LA FECHA DE CADUCIDAD DEL ÚLTIMO PAQUETE AÑADIDO,
         LA SUMA DE TODAS LAS HORAS DEL CLIENTE EN LOS TRABAJOS, LA FOTO DE PERFIL DEL CLIENTE Y EL NOMBRE. TODO AGRUPADO POR CLIENTE*/
         $stmt = $mysqli->prepare(
-            "SELECT SUM(horas) AS totalHorasPaquetes, 
+            "SELECT FORMAT (SUM(horas),2) AS totalHorasPaquetes, 
                   (SELECT data_final FROM horas WHERE id_client=? ORDER BY data_final DESC LIMIT 1) AS fecha_caducidad, 
-                  (SELECT SUM(hores) FROM items WHERE id_client=?) AS consumidas,
+                  FORMAT ((SELECT SUM(hores) FROM items WHERE id_client=?),2) AS consumidas,
                   (SELECT perfil FROM imagenes WHERE id_client=?) AS perfil,
                   (SELECT nom FROM users WHERE id = ?) AS nom
                   FROM horas
@@ -48,14 +48,12 @@ if(isset($_GET['cliente'])) {
             if($horasData!=null) {
 
                 //convertimos las horas del total de los paquetes
-                $totalPaquetes = formatearNumero( $horasData['totalHorasPaquetes']);
+                $totalPaquetes = formatearNumero((float)str_replace(',', '.' ,$horasData['totalHorasPaquetes'] ));
 
                 //convertimos las horas del total de consumidas
-                $totalConsumidas = formatearNumero($horasData['consumidas']);
+                $totalConsumidas = formatearNumero((float)str_replace(',', '.' ,$horasData['consumidas']));
 
                 //obtenemos los datos necesarios
-
-
 
                 /* HORAS CONSUMIDAS */
                 $consumidas = $totalConsumidas;

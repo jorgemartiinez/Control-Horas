@@ -13,6 +13,7 @@ const CHARSET = "UTF-8";
 if(file_exists('../../connect/config.php')) {
     require('../../connect/config.php');
 }
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -47,7 +48,12 @@ function initCorreo($asunto, $to, $toName){
 
         $mail->SMTPSecure = PROTOCOLO;
 
-        $mail->Port = 587;
+        if(PROTOCOLO == 'tls') {
+            $mail->Port = 587;
+        }else{
+            $mail->Port = 65;
+        }
+
         $mail->CharSet = CHARSET;
         $mail->SetFrom(USERNAME, FROM);
         $mail->AddAddress($to, $toName);
@@ -66,7 +72,7 @@ function initCorreo($asunto, $to, $toName){
 
 //CUANDO UN CLIENTE SE DA DE ALTA QUEREMOS ENVIAR UN CORREO CON SU USUARIO Y CONTRASEÑA
 function enviarCorreoAltaCliente($asunto, $to, $toName, $archivo,
-                       $password = null)
+                                 $password = null)
 {
 
     try {

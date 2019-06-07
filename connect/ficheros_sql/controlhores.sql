@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `config` (
 
 INSERT INTO `config` (`id`, `clave`, `valor`) VALUES
 (1, 'logo', ''),
-(2, 'footer-direccion', 'Dirección Empresa'),
-(3, 'footer-empresa', 'Nombre Empresa'),
-(4, 'footer-email', 'empresa@email.com');
+(2, 'footer-direccion', ''),
+(3, 'footer-empresa', ''),
+(4, 'footer-email', '');
 
 -- --------------------------------------------------------
 --

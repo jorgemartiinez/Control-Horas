@@ -50,7 +50,7 @@ if(isset($resultados) && count($resultados)){
                 <a style="cursor:pointer">
             <?php } ?>
             <i class='fe-user'></i>
-            <span > <?php echo $cliente['nom']; if(isset($horasCaducadas) &&!in_array($cliente['id'], $horasCaducadas)){ ?> <i class="fe-clock text-danger"></i><?php }?></span>
+            <span > <?php echo $cliente['nom']; if(isset($horasCaducadas) &&!in_array($cliente['id'], $horasCaducadas) || empty($horasCaducadas)){ ?> <i class="fe-clock text-danger"></i><?php }?></span>
             <span class='menu-arrow'></span>
             </a>
             <ul class='nav-second-level' aria-expanded='false'>

@@ -6,12 +6,14 @@
             <div class="col-md-8 col-lg-6 col-xl-5">
                 <div class="card ">
                     <div class="card-body p-4">
-                        <div class="text-center w-75 m-auto">
-                            <span><img src="assets/images/logo-dark.png" alt="logo panda creatiu" height="44"></span>
-                            <p class="text-muted mb-4 mt-3">
-                                Control de <strong> horas de trabajo </strong>
-                            </p>
+
+                        <div class="text-center" style="background-color: #566676;  border-radius: 6px; padding-top: 20px;">
+                            <?php if(isset($_SESSION['config'])&&$_SESSION['config']!=null && $_SESSION['config']['logo'] != ''){ ?>
+                            <span class="text-center"><img src="<?='uploads/logo/'.$_SESSION['config']['logo']?>" alt="logo <?=$_SESSION['config']['footer-empresa']?>" height="50"></span>
+                            <?php } ?>
+                            <p class="text-white mt-2 mb-3"> Control de <strong> horas de trabajo </strong> <br/><br/> </p>
                         </div>
+
                         <!-- Alerta cuando haya expirado la sesión -->
                         <?php if(!isset($_SESSION)) {session_start();}
                         if(isset($_SESSION['expired']) && $_SESSION['expired'] == 1 && isset($_SESSION['expiredMail'])){ ?>
@@ -20,6 +22,7 @@
                         </p>
                         <?php }?>
                         <!-- Fin alerta -->
+
                         <form id="form-login">
                             <div class="form-group mb-3">
                                 <label for="emailaddress">Email</label>
@@ -47,7 +50,6 @@
                     <div class="col-12">
                         <p> <a href="recuperar-password" class="text-white ml-1">¿Has olvidado tu contraseña?</a></p>
                     </div> <!-- end col -->
-                   
                 </div>
                 <!-- end row -->
             </div> <!-- end col -->

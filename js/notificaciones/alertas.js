@@ -140,6 +140,43 @@ function mensajeAJAXWarningBorrar(ruta, dataString) {
 }
 
 
+
+//recibe la ruta de un archivo dentro de connect y los parámetros para realizar la petición en caso de que se acepte el warning. Esta servirá para desinstalar el panel en el apartado de configuración.
+function mensajeAjaxUninstallPanel(ruta, dataString, msj, succesmsj) {
+
+    Swal.fire({
+        title: msj,
+        text: "Esta operación será irreversible.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, estoy seguro'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "POST",
+                url: "connect/"+ruta,
+                data: dataString,
+                success: function (data) {
+
+                    if(data == 'OK'){
+                        mensajeExistoRedirigir(succesmsj, 'Serás redirigido al apartado de instalación', 'logout');
+                    }else{
+                        mensajeGenericoError();
+
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    mensajeGenericoError();
+                }
+            });
+        }
+    })
+}
+
+
 //recibe la ruta de un archivo dentro de connect y los parámetros para realizar la petición en caso de que se acepte el warning y ademñas recibe el id del cliente
 //al que vamos a realizar el correo
 
@@ -179,8 +216,8 @@ function mensajeAJAXWarningEnviarCorreo(ruta, dataString, cliente) {
 function mensajeAJAXWarningEnviarCorreoNuevoPaquete(ruta, dataString, cliente) {
 
     Swal.fire({
-        title: 'Se creará un nuevo paquete y se enviará un correo al cliente. ¿Estás seguro?',
-        text: "Esta operación puede ser irreversible",
+        title: 'Se dará de alta un nuevo paquete y se enviará un correo para notificar al cliente. ¿Estás seguro?',
+        text: "",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -195,7 +232,7 @@ function mensajeAJAXWarningEnviarCorreoNuevoPaquete(ruta, dataString, cliente) {
                 data: dataString,
                 success: function (data) {
                     if(data.includes('OK')){
-                        mensajeExistoRedirigir('Éxito', 'El paquete ha sido creado correctamente y se ha enviado un email al cliente', "paquetes?cliente="+cliente)
+                        mensajeExistoRedirigir('Éxito', 'El paquete ha sido creado correctamente y se ha enviado un email notificando al cliente.', "paquetes?cliente="+cliente)
                     }else{
                         mensajeCustomUnBotonSinRecargar('Error', 'Se ha producido un error al añadir el paquete', 'error');
                     }

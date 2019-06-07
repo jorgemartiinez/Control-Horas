@@ -93,13 +93,14 @@ if(!isset($_GET['rol']) || !is_numeric($_GET['rol'])||$_GET['rol'] > 1){header("
                                                     :' <span class="badge badge-danger">Suspendida</span>')?>
                                             </td>
 
-                                            <td>
-                                                <a data-animation="fadein" data-plugin="custommodal" class="action-icon" title='Editar usuario' onclick='editarCliente(<?= $cliente['id'] ?>)' >  <i class="mdi mdi-account-edit"></i></a>
+                                                <td>
+                                                    <a data-animation="fadein" data-plugin="custommodal" class="action-icon" title='Editar usuario' onclick='editarCliente(<?= $cliente['id'] ?>)' >  <i class="mdi mdi-account-edit"></i></a>
 
-                                                <?php echo (($cliente['estado'])?'<a data-animation="\fadein\" data-plugin="\custommodal\" onclick="cambiarEstado('.$cliente['id'] . ', ' .$cliente['estado']  . ') " class="action-icon" title=\'Cambiar estado\'> <i class="mdi mdi-account-off"></i></a>'
-                                                    :'<a data-animation="fadein" onclick="cambiarEstado('.$cliente['id'] . ', ' .$cliente['estado']  . ') " class="action-icon" title=\'Cambiar estado\'> <i class="mdi mdi-account-check" ></i></a>') ?>
-                                                <a onclick='deleteCliente(<?= $cliente['id'] ?>)' class="action-icon" title="Eliminar usuario"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
+                                                    <?php echo (($cliente['estado'])?'<a data-animation="\fadein\" data-plugin="\custommodal\" onclick="cambiarEstado('.$cliente['id'] . ', ' .$cliente['estado']  . ') " class="action-icon" title=\'Cambiar estado\'> <i class="mdi mdi-account-off"></i></a>'
+                                                        :'<a data-animation="fadein" onclick="cambiarEstado('.$cliente['id'] . ', ' .$cliente['estado']  . ') " class="action-icon" title=\'Cambiar estado\'> <i class="mdi mdi-account-check" ></i></a>') ?>
+                                                    <a onclick='deleteCliente(<?= $cliente['id'] ?>)' class="action-icon" title="Eliminar usuario"> <i class="mdi mdi-delete"></i></a>
+                                                </td>
+
                                         </tr>
                                     <?php }} }?>
                             </tbody>
@@ -133,16 +134,16 @@ if(!isset($_GET['rol']) || !is_numeric($_GET['rol'])||$_GET['rol'] > 1){header("
                 <div class="form-group">
                     <label for="rol-nuevo">Rol</label>
 
-                   <?php if($_GET['rol'] == 1){ ?>
-                    <select id="rol-nuevo" class="form-control" required disabled>
-                        <option value="1" selected>Administrador</option>
-                        <option value="0">Usuario</option>
-                    </select>
+                    <?php if($_GET['rol'] == 1){ ?>
+                        <select id="rol-nuevo" class="form-control" required disabled>
+                            <option value="1" selected>Administrador</option>
+                            <option value="0">Usuario</option>
+                        </select>
                     <?php }else{ ?>
-                       <select id="rol-nuevo" class="form-control" required disabled>
-                           <option value="1">Administrador</option>
-                           <option value="0" selected>Usuario</option>
-                       </select>
+                        <select id="rol-nuevo" class="form-control" required disabled>
+                            <option value="1">Administrador</option>
+                            <option value="0" selected>Usuario</option>
+                        </select>
                     <?php } ?>
 
                 </div>
@@ -176,13 +177,21 @@ if(!isset($_GET['rol']) || !is_numeric($_GET['rol'])||$_GET['rol'] > 1){header("
                 </div>
 
                 <div class="form-group">
-                    <label for="rol-editar">Rol</label>
-                    <select id="rol-editar" class="form-control" required>
-                        <option value="1">Administrador</option>
-                        <option value="0" selected>Usuario</option>
-                    </select>
-                </div>
 
+                    <?php if($_GET['rol'] == 1){ ?>
+                        <label for="rol-editar">Rol</label>
+                        <select id="rol-editar" class="form-control" required>
+                            <option value="1" selected>Administrador</option>
+                            <option value="0">Usuario</option>
+                        </select>
+                    <?php }else{ ?>
+                        <label for="rol-editar">Rol</label>
+                        <select id="rol-editar" class="form-control" required>
+                            <option value="1">Administrador</option>
+                            <option value="0" selected>Usuario</option>
+                        </select>
+                    <?php } ?>
+                </div>
                 <div class="text-right">
                     <button type="submit" class="btn btn-success waves-effect waves-light">Editar</button>
                     <button type="button" class="btn btn-danger waves-effect waves-light m-l-10" id="cancelar-form-editar-cliente">Cancelar</button>

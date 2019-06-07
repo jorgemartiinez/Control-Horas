@@ -88,6 +88,9 @@ function formatMinutosAHTML($trabajoHoras)
                 : $trabajoHoras;
 
             switch ($minutos) {
+                case 0;
+                    return 0;
+                    break;
                 case 25; // 15
                     return 15;
                     break;

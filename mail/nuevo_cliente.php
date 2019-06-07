@@ -18,18 +18,16 @@
 <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
     <tr>
         <td>
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; max-width:600px; font-size:12px; margin-top:20px; ">
 
-            <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; max-width:600px; font-size:12px; margin-top:20px;">
-
-                <tr>
-                    <td style="width:320px;">
-
+                <tr style="background: #566676;">
+                    <td style="width:300px; padding: 5px 0" align="center">
                         <?php if(isset($_SESSION['config']['logo']) && $_SESSION['config']['logo'] != ''){ ?>
-                            <img src="<?=$GLOBALS['config']['rutaAbsoluta'].'/uploads/logo/'.$_SESSION['config']['logo'] ?>" alt="Logo Empresa" height="35">
+                            <img src="<?=$GLOBALS['config']['rutaAbsoluta'].'/uploads/logo/'.$_SESSION['config']['logo'] ?>" alt="Logo Empresa" width="150">
                         <?php }?>
                     </td>
-                    <td align="center">
-                        <p style="color:#fff; background-color:#000; padding:10px 0; width:215px; font-size:14px; text-align:center;">
+                    <td align="center" style="width:300px;">
+                        <p style="color:#fff;  font-size:14px; ">
                             Control de <strong>horas de trabajo</strong>
                         </p>
                     </td>
@@ -37,7 +35,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <p style="border-bottom:1px dotted #000; border-width:1px; border-color:#000; width:600px;"></p>
+                        <p style="border-bottom:1px dotted #000; border-width:1px; border-color:#000; width:600px; margin:5px"></p>
                     </td>
                 </tr>
 
@@ -46,22 +44,20 @@
             <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; max-width:600px; font-size:18px; margin-top:10px;">
 
                 <tr>
-                    <td width="25"></td>
-                    <td width="180" align="center"><strong>Alta de usuario</strong></td>
+                    <td width="600" align="center"><strong>Alta de usuario</strong></td>
                     <td></td>
                 </tr>
             </table>
 
-            <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; max-width:600px; font-size:18px; margin-top:40px;">
+            <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; max-width:600px; font-size:18px; margin-top:20px;">
 
                 <tr>
-                    <td width="90"></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td width="90"></td>
+
                     <td style="font-size:14px; line-height:1.2;">
-                        ¡Bienvenido <span style="color:#000;"><strong> <?php echo $toName ?> </strong>!<br /><br />
+                        ¡Bienvenido <span style="color:#000;"><strong> <?php echo $toName ?></strong>!<br /><br />
 
                             Con este e-mail le confirmamos que ha sido <strong>dado de alta</strong> correctamente en nuestro <strong>panel de control de horas</strong>. <br /><br />
 
@@ -80,11 +76,11 @@
 
             </table>
 
-            <table border="0" align="center" width="600" style="margin-top:40px;">
+            <table border="0" align="center" width="600" style="margin-top:20px;">
 
                 <tr>
                     <td colspan="2">
-                        <p style="border-bottom:1px dotted #000; border-width:1px; border-color:#000; width:600px;"></p>
+                        <p style="border-bottom:1px dotted #000; border-width:1px; border-color:#000; width:600px; margin 5px;"></p>
                     </td>
                 </tr>
 
@@ -93,14 +89,14 @@
             <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; font-size:10px; margin-top:2px;">
 
                 <tr>
-                    <td align="left" width="300"><a href="mailto: <?php if(isset($_SESSION['config'])){ if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];}?>" style="color:#36a9e1; margin-left:20px;"> <?php if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];}} ?></a></td>
+                    <td align="left" width="300"><a href="mailto: <?php if(isset($_SESSION['config'])){ if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];}?>" style="color:#36a9e1;"> <?php if($_SESSION['config']['footer-email']!='empresa@email.com' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-email'];}} ?></a></td>
                     <td align="right" style="color:#585757;"> <?php if(isset($_SESSION['config'])){ if($_SESSION['config']['footer-direccion']!='Dirección Empresa' ||$_SESSION['config']['footer-direccion']!='' ){echo $_SESSION['config']['footer-direccion'];}}?></td>
                 </tr>
 
             </table>
-
+        </td>
     </tr>
-    </td>
+
 </table>
 
 </body>

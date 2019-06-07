@@ -1,12 +1,12 @@
 'use strict';
 
-/* FICHERO QUE SERVIRÁ PARA GESTIONAR EL ARCHIVO DE CONFIGURACIÓN DE BD  */
+/* FICHERO QUE SERVIRÁ PARA GESTIONAR EL ARCHIVO  */
 
 window.addEventListener("load", function () {
 
 
     mensajeCustomUnBotonSinRecargar('Hemos detectado que no tiene instalado nuestro panel.', 'Por lo tanto, se va a proceder con la instalación. ' +
-        'Tenga en cuenta que dejar la instalación a medias puede causar problemas.', 'info');
+        'Tenga en cuenta que dejar la instalación a medias puede causar problemas de configuración.', 'info');
 
 
     Array.from(document.forms).forEach(form=>{
@@ -42,13 +42,15 @@ function createConfigBD() {
                 if (data.includes('connect_error')) { //error conexión
                     mensajeCustomUnBotonSinRecargar('Error', 'No se ha podido establecer la conexión con la BD. Vuelva a intentarlo.', 'error');
                 } else if (data.includes('connect_success')) { //conexión OK
-                    mensajeExistoRedirigir('Bien hecho!', 'Se ha establecido conexión con la Base de Datos y se ha creado correctamente el fichero!', 'installation-2');
+                    mensajeExistoRedirigir('OK', 'Se ha establecido conexión con la Base de Datos y se ha creado correctamente el fichero de configuración.', 'installation-2');
                 } else {
                     mensajeCustomUnBotonSinRecargar('Error', 'No se ha podido establecer la conexión con la BD. Vuelva a intentarlo.', 'error');
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                mensajeCustomUnBotonSinRecargar('Error', 'No se ha podido establecer la conexión con la BD. Vuelva a intentarlo.', 'error');
+                mensajeCustomUnBotonSinRecargar('Error', 'Se ha producido un error al procesar la petición. Vuelva a intentarlo.', 'error');
+                //alert(xhr.status);
+                //alert(thrownError);
             }
         });
     }

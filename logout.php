@@ -10,15 +10,8 @@ include('include/partials/login/header-login.php'); ?>
                 <div class="card bg-pattern">
 
                     <div class="card-body p-4">
-
-                        <div class="text-center w-75 m-auto">
-                            <a href="index">
-                                <span><img src="assets/images/logo-dark.png" alt="" height="22"></span>
-                            </a>
-                        </div>
-
                         <div class="text-center">
-                            <div class="mt-4">
+                            <div class="mt-2">
                                 <div class="logout-checkmark">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
                                         <circle class="path circle" fill="none" stroke="#4bd396" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>

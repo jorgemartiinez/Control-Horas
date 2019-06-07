@@ -1,6 +1,9 @@
 <?php
 
 /* DESDE AQUÍ CREAMOS EL USUARIO ADMINISTRADOR PARA ENTRAR POR PRIMERA VEZ AL PANEL DESPUÉS DE LA INSTALACIÓN */
+/*ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);*/
 
 if(isset($_POST['nombre'],$_POST['pass1'],$_POST['pass2'])) {
 

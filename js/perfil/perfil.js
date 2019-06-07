@@ -128,6 +128,7 @@ function abrirArchivos(form) {
 
         $.ajax({
             type: "POST",
+
             url: "connect/perfil/update_photo.php",
             data: data,
             processData: false, // importante
@@ -140,7 +141,8 @@ function abrirArchivos(form) {
                     mensajeCustomUnBoton('Error formato', 'El archivo no es una imagen válida. Los formatos permitidos son png, jpg y jpeg. ', 'error')
                 }else if(data == 'error_tamaño'){ //imagen demasiado grande
                     mensajeCustomUnBoton('Error tamaño', 'El archivo que has intentado subir es demasiado grande.', 'error')
-                }else{
+                }
+                else{
                     mensajeCustomUnBoton('Error al subir la imgen', 'Se ha producido un error al subir la imagen. Si el problema persiste, pongase en contacto con nuestro soporte técnico.', 'error')
                 }
             },

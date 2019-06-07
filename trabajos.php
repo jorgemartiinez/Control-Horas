@@ -114,8 +114,10 @@ require('connect/trabajos/get_trabajosByCliente.php');
                                                 ?>
 
                                             </td>
-                                            <td><?= $trabajo['hores'] ?>
-                                            </td>
+
+                                            <?php if($trabajo['hores']!='00:00h'){ ?>
+                                                <td><?= $trabajo['hores'] ?>  </td>
+                                            <?php }else{echo "<td></td>";} ?>
 
                                             <?php if($_SESSION['usuario']['rol'] == 1){ ?>
                                                 <td>

@@ -13,26 +13,59 @@ window.addEventListener("load", function () {
     document.getElementById("config-footer-button").addEventListener("click", selectConfigFooter);
     document.getElementById("config-mail-button").addEventListener("click", selectConfigMail);
 
-    document.getElementById('mostrarContrasenya').addEventListener('click', mostrarContraseña);
+    $('#config-avanzada-button').on('click',selectConfigAvanzada);
+    $('#form-desinstalar-panel').on('submit',desinstalarPanel);
+    $('#form-restablecer-panel').on('submit',restablecerPanel);
 
 });
 
+function desinstalarPanel(event) {
+    event.preventDefault();
+    mensajeAjaxUninstallPanel('config/desinstalar_panel','', '¿Estás seguro de que quieres desinstalar completamente el panel?', 'Desinstalación realizada correctamente');
+}
+
+
+function restablecerPanel(event){
+    event.preventDefault();
+    mensajeAjaxUninstallPanel('config/restablecer_panel','', '¿Estás seguro de que quieres restablecer el panel?', 'Panel restablecido correctamente. Se cerrará la sesión actual.');
+}
+
 
 /* SELECTORES PARA ELEGIR UN FORMULARIO U OTRO PARA CONFIGURAR EL PANEL */
-
-
 
 /* SE ELIMINA LA CLASE Y SE CAMBIA EL DISPLAY PARA MOSTRAR O NO CADA APARTADO DE FORMULARIO */
 function selectConfigFooter(event) {
     event.preventDefault();
 
-   $("#apartado-config-footer").css('display', 'block');
+    $("#apartado-config-footer").css('display', 'block');
 
     $("#apartado-config-mail").css('display', 'none');
+
+    $("#apartado-config-avanzada").css('display', 'none');
 
     $("#config-footer-button").removeAttr('class').addClass('btn btn-primary');
 
     $("#config-mail-button").removeAttr('class').addClass('btn btn-light');
+
+    $("#config-avanzada-button").removeAttr('class').addClass('btn btn-danger');
+
+}
+
+
+/* SE ELIMINA LA CLASE Y SE CAMBIA EL DISPLAY PARA MOSTRAR O NO CADA APARTADO DE FORMULARIO */
+function selectConfigAvanzada(event) {
+    event.preventDefault();
+
+    $("#apartado-config-avanzada").css('display', 'block');
+
+    $("#apartado-config-mail").css('display', 'none');
+
+    $("#apartado-config-footer").css('display', 'none');
+
+    $("#config-avanzada-button-button").removeAttr('class').addClass('btn btn-primary');
+
+    $("#config-mail-button").removeAttr('class').addClass('btn btn-light');
+    $("#config-footer-button").removeAttr('class').addClass('btn btn-light');
 
 }
 
@@ -42,10 +75,12 @@ function selectConfigMail(event) {
     $("#apartado-config-mail").css('display', 'block');
 
     $("#apartado-config-footer").css('display', 'none');
+    $("#apartado-config-avanzada").css('display', 'none');
 
     $("#config-mail-button").removeAttr('class').addClass('btn btn-primary');
 
     $("#config-footer-button").removeAttr('class').addClass('btn btn-light');
+    $("#config-avanzada-button-button").removeAttr('class').addClass('btn btn-light');
 
 }
 

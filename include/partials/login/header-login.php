@@ -13,7 +13,7 @@ if(!filesize('connect/config.php') || !filesize('connect/BD.php')){
     header( 'Location:'.$ruta . 'installation-1');
     exit();
 }
-require('connect/config.php'); //archivo config
+include('connect/config.php'); //archivo config
 
 if(isset($_SESSION['instalacion'])){
     header("Location:".$GLOBALS['config']['rutaAbsoluta'].$_SESSION['instalacion']);
@@ -21,7 +21,11 @@ if(isset($_SESSION['instalacion'])){
 }
 
 //si has iniciado sesión, entrarás en el panel
-if(isset($_SESSION['usuario'])){ header("Location:".$GLOBALS['config']['rutaAbsoluta'].'panel'); }
+if(isset($_SESSION['usuario'])){ header("Location:".$GLOBALS['config']['rutaAbsoluta'].'panel'); exit();}
+
+if (!isset($_SESSION['config'])) {//obtenemos la configuración del footer si todavía no está inicializada
+    require('connect/config/get_config.php');
+}
 
 ?>
 <!DOCTYPE html>

@@ -12,8 +12,8 @@ try {
     $stmt =$mysqli->prepare("SELECT id, titulo, descripcio, id_client, data_inici, hores, data_final, 
 caducada, IF(data_final > 0, true, false) 
 AS estado FROM items
-WHERE id_client = ? 
-ORDER BY data_inici DESC");
+WHERE id_client = ?
+ORDER BY caducada ASC, data_final DESC");
     $stmt->bind_param('i', $id);
 
     $stmt->execute();
@@ -27,6 +27,7 @@ ORDER BY data_inici DESC");
         $dades['descripcio'] =  $registro['descripcio'];
         $dades['id_client'] = $registro['id_client'];
         $dades['data_inici'] = $registro['data_inici'];
+
         $dades['hores'] = getHorasYMinutos($registro['hores']);
         $dades['estado'] = $registro['estado'];
         $dades['data_final'] = $registro['data_final'];

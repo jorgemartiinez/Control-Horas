@@ -63,7 +63,9 @@ function finishConfig(){
                             }
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
-                            mensajeGenericoError();
+                            mensajeCustomUnBotonSinRecargar('Error', 'Se ha producido un error al procesar la petición. Vuelva a intentarlo.', 'error');
+                            //alert(xhr.status);
+                            //alert(thrownError);
                         }
                     });
                 }

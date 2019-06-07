@@ -20,7 +20,7 @@ if(!isset($_SESSION['instalacion'])) {
                         </div>
 
                         <div class="alert alert-info mt-2" role="alert">
-                            <i class="mdi mdi-alert-circle-outline font-15"></i> En primera instancia deberá de introducir la información necesaria para que podamos establecer conexión con su base de datos y así poderle instalar el panel. <br/> No te preocupes, ¡sólo te llevará unos <strong>minutos</strong>!
+                            <i class="mdi mdi-alert-circle-outline font-15"></i> En primera instancia deberá de introducir la información necesaria para que podamos establecer conexión con su base de datos y así poderle instalar el panel. <br/> No se preocupes, ¡sólo le llevará unos <strong>minutos</strong>!
                         </div>
 
                         <form id="form-installation">
@@ -29,24 +29,24 @@ if(!isset($_SESSION['instalacion'])) {
                                 <input class="form-control" type="text" id="hostBD" placeholder="host.dirección.dominio" autofocus onkeyup="comprobarCampo(this)" required>
                                 <small class="form-text text-info">Dirección de hosting de su base de datos. Ejemplo: vl19749.dinaserver.com</small>
                             </div>
-                            <div class="form-group">
-                                <label for="usuarioBD">Usuario base de datos</label>
-                                <input class="form-control" type="text" id="usuarioBD" required onkeyup="comprobarCampo(this)" placeholder="Nombre usuario">
-                                <small class="form-text text-info">Nombre del usuario que tiene acceso a su base de datos.</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="passwordBD">Contraseña base datos</label>
-                                <input class="form-control" type="password" required id="passwordBD" onkeyup="comprobarCampo(this)" placeholder="Contraseña">
-                                <small class="form-text text-info">Contraseña del usuario que tiene acceso a su base de datos.</small>
-                            </div>
-
-                            <div class="form-group">
+                               <div class="form-group">
                                 <label for="nombreBD">Nombre base de datos</label>
                                 <input class="form-control" type="text" required id="nombreBD" onkeyup="comprobarCampo(this)" placeholder="Nombre base datos">
                                 <small class="form-text text-info">Nombre de la base de datos a la que quiere importar el panel.</small>
                             </div>
 
+                            <div class="form-group">
+                                <label for="usuarioBD">Usuario</label>
+                                <input class="form-control" type="text" id="usuarioBD" required onkeyup="comprobarCampo(this)" placeholder="Nombre usuario">
+                                <small class="form-text text-info">Nombre del usuario que tiene acceso a su base de datos.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="passwordBD">Contraseña</label>
+                                <input class="form-control" type="password" required id="passwordBD" onkeyup="comprobarCampo(this)" placeholder="Contraseña">
+                                <small class="form-text text-info">Contraseña del usuario que tiene acceso a su base de datos.</small>
+                            </div>
+                         
                             <div class="form-group mb-0 text-center">
                                 <button class="btn btn-success btn-block" type="submit"> Establecer conexión y continuar con la instalación</button>
                             </div>

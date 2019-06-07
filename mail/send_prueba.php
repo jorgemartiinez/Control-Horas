@@ -39,7 +39,7 @@
 
             <table border="0" align="center" width="600" style="font-family:Arial, Helvetica, sans-serif; max-width:600px; font-size:18px; margin-top:10px;">
                 <tr>
-                    <td><strong>Instalación panel</strong></td>
+                    <td align="center"><strong>Instalación panel</strong></td>
                 </tr>
                 <tr height="20"></tr>
                 <tr>

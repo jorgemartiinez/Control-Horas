@@ -1,1 +1,0 @@
-<?php $mysqli = new mysqli('localhost' , 'usertestv2', 'vJcl9Xcy', 'controlhores_testv2'); $mysqli->set_charset('utf8');  if ($mysqli->connect_error) {die('Connection failed: ' . $mysqli->connect_error);} ?>

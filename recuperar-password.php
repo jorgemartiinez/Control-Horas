@@ -7,12 +7,12 @@
                 <div class="card bg-pattern">
 
                     <div class="card-body p-4">
+                        <div class="text-center" style="background-color: #566676;  border-radius: 6px; ">
+                            <?php if(isset($_SESSION['config'])&&$_SESSION['config']!=null){ ?>
+                                <span class="text-center"><img src="<?='uploads/logo/'.$_SESSION['config']['logo']?>" alt=" <?=$_SESSION['config']['footer-empresa']?>" height="50"></span>
+                            <?php } ?>
+                            <p class="text-white mb-4 mt-3">Introduzca su correo electrónico y le enviaremos un email con un enlace que servirá para cambiar su contraseña.</p>
 
-                        <div class="text-center w-95 m-auto">
-                            <a href="index">
-                                <span><img src="assets/images/logo-dark.png" alt="" height="42"></span>
-                            </a>
-                            <p class="text-muted mb-4 mt-3">Introduzca su correo electrónico y le enviaremos un email con un enlace que servirá para cambiar su contraseña.</p>
                         </div>
 
                         <form id="form-reset-login">

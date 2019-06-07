@@ -1,8 +1,5 @@
 <!-- end page -->
-<footer style="font-size: 12px; " class="footer footer-alt">
-    C/ Santa Llucia 3 - 3A · 03801 · Alcoi (Alacant)<br/>
-    <a href="mailto:info@pandacreatiu.com" style="color: #98a6ad;"> info@pandacreatiu.com </a>
-</footer>
+
 <!-- Vendor js -->
 <script src="assets/js/vendor.min.js"></script>
 <!-- App js -->

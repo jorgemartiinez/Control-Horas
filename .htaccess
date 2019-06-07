@@ -1,0 +1,19 @@
+SecRuleRemoveById 208 210
+
+Options +FollowSymLinks -MultiViews
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{THE_REQUEST} //
+RewriteRule ^.*$ $0 [R=302,L,NE]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+# php_value error_reporting 8191
+
+
+#errores
+ErrorDocument 404 /errores/404.php
+ErrorDocument 403 /errores/403.php
+ErrorDocument 500 /errores/500.php

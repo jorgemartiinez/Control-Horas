@@ -41,7 +41,7 @@ if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAb
                         <div class="col-12">
                             <h4 class="header-title">Configuración</h4>
                             <p class="sub-header">
-                                Desde aquí usted podrá personalizar el panel de administración. Las opciones disponibles son; editar el logo que se muestra en la esquina superior izquierda, la información que se muestra en el footer (tanto en la página como en los emails) y cambiar la configuración de su hosting de correo electrónico.
+                                Desde aquí podrá personalizar el panel de administración. Las opciones disponibles son; editar el logo que se muestra en la esquina superior izquierda, la información que se muestra en el encabezado y pié de página (tanto en la página como en los emails) y cambiar la configuración de su hosting de correo electrónico.
                             </p>
                         </div>
 
@@ -49,12 +49,20 @@ if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAb
 
                             <div class="text-sm-center">
                                 <div class="btn-group mb-3 ml-1">
-                                    <button type="button" class="btn btn-primary" id="config-footer-button">Configuración footer</button>
+                                    <button type="button" class="btn btn-primary" id="config-footer-button">Configuración encabezado y pié de página</button>
                                     <button type="button" class="btn btn-light" id="config-mail-button">Configuración email</button>
                                 </div>
                             </div>
 
-                            <div id="apartado-config-footer">
+                            <?php if($_SESSION['usuario']['id']==1) { ?>
+                                <div class="text-sm-center">
+                                    <div class="btn-group mb-3 ml-1">
+                                        <button type="button" class="btn btn-danger" id="config-avanzada-button">Configuración avanzada</button>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
+                            <div id="apartado-config-footer" >
                                 <form id="form-config" enctype="multipart/form-data" method="post">
                                     <input type="file" id="logo-empresa" class="dropify" data-height="250" data-default-file="uploads/logo/<?=$_SESSION['config']['logo']?>" accept=".jpg, .jpeg, .png" data-allowed-file-extensions="png jpg jpeg"/>
                                     <small class="form-text text-info">No suba nada si no quiere actualizar la imagen. </small>
@@ -97,7 +105,7 @@ if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAb
                                     </div>
                                     <div class="form-group">
                                         <label for="correo">Correo electrónico</label>
-                                        <input class="form-control" type="text" id="correo" placeholder="email@email.com" value="<?= USERNAME ?>" autofocus onkeyup="comprobarCampo(this)" required>
+                                        <input class="form-control" type="text" id="correo" placeholder="Email" value="<?= USERNAME ?>" autofocus onkeyup="comprobarCampo(this)" required>
                                         <small class="form-text text-info">Dirección de correo con la que enviará los correos desde el panel. Será visible para todos sus clientes.</small>
                                     </div>
                                     <div class="form-group">
@@ -142,6 +150,26 @@ if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAb
                                     </div>
                                 </form>
                             </div>
+
+                            <?php if($_SESSION['usuario']['id']==1) { ?>
+                                <div id="apartado-config-avanzada" style="display:none">
+
+                                    <form id="form-restablecer-panel">
+                                        <div class="form-group text-center">
+                                            <button class="btn btn-warning waves-effect waves-light" type="submit">Restablecer panel</button>
+                                            <small class="form-text text-muted">Se mantendrán los archivos de configuración y se volverá al estado en el que estaba el sistema justo después de la instalación. Sólo se mantendrán los usuarios que tengan el rol de administrador.
+                                            </small>
+                                        </div>
+                                    </form>
+
+                                    <form id="form-desinstalar-panel">
+                                        <div class="form-group text-center">
+                                            <button class="btn btn-warning waves-effect waves-light" type="submit">Desinstalar panel</button>
+                                            <small class="form-text text-muted">Se borrará la base de datos, los archivos de configuración y todas las imágenes. Le devolverá al apartado de instalación inicial para volver a realizarla desde cero. </small>
+                                        </div>
+                                    </form>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div> <!-- end card-->
                     <!-- end row -->
@@ -153,6 +181,26 @@ if($_SESSION['usuario']['rol']!=1){header("Location:".$GLOBALS['config']['rutaAb
         </div>
     </div>
     <!-- end wrapper -->
+    <a href="#modal-comprobar-password" class="btn btn-danger waves-effect waves-light invisible" data-animation="fadein" data-plugin="custommodal" data-overlaycolor="#38414a" id="abrir-modal-comprobarpass"> </a>
+
+
+    <!-- Modal -->
+    <div id="modal-comprobar-password" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.modal.close();" >
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title bg-danger">Comprobar contraseña</h4>
+        <div class="custom-modal-text text-left">
+            <p class="text-info">Para proceder, introduzca su contraseña.</p>
+            <form id="check-pass-reinicio">
+                <div class="form-group">
+                    <label for="password-actual">Contraseña actual</label>
+                    <input type="password" class="form-control" id="password-actual" name="password-actual" placeholder="Introduzca su contraseña actual." required>
+                    <button class="btn btn-warning waves-effect waves-light" type="submit">Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- ============================================================== -->
     <!-- End Page content -->

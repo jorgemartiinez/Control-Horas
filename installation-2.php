@@ -20,7 +20,7 @@ if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
                         </div>
                         <form id="form-email-install">
                             <div class="form-group">
-                                <label for="host">Host correo</label>
+                                <label for="host">Host</label>
                                 <input class="form-control" type="text" id="host" placeholder="host.dirección.dominio" autofocus onkeyup="comprobarCampo(this)" required>
                                 <small class="form-text text-info ">Dirección de hosting de su proveedor de correo. Ejemplo: smtp.gmail.com</small>
                             </div>
@@ -31,11 +31,11 @@ if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
                             </div>
                             <div class="form-group">
                                 <label for="correo">Correo electrónico</label>
-                                <input class="form-control" type="text" id="correo" placeholder="email@email.com" autofocus onkeyup="comprobarCampo(this)" required>
+                                <input class="form-control" type="text" id="correo" placeholder="Email" autofocus onkeyup="comprobarCampo(this)" required>
                                 <small class="form-text text-info">Dirección de correo con la que enviará los correos desde el panel. Será visible para todos sus clientes.</small>
                             </div>
                             <div class="form-group">
-                                <label for="pass">Contraseña correo</label>
+                                <label for="pass">Contraseña</label>
                                 <input class="form-control" type="password" id="pass" onkeyup="comprobarCampo(this)" <?php if(isset($_POST['pass'])){?> value="<?=$_POST['pass']?>" <?php } ?>
                                        required >
                                 <small class="form-text text-info">Contraseña de la cuenta de correo indicada en el campo anterior.</small>

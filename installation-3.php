@@ -16,7 +16,7 @@ if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
                         </div>
 
                         <div class="alert alert-info mt-2" role="alert">
-                            <i class="mdi mdi-alert-circle-outline font-15"></i> Y por último, para finalizar al instalación necesitará crear un usuario con el que poder acceder al panel. Tenga en cuenta que este tendrá permiso para ejecutar todas las operaciones disponibles.
+                            <i class="mdi mdi-alert-circle-outline font-15"></i> Y por último, para finalizar al instalación necesitará crear un usuario con el que poder acceder al panel. Tenga en cuenta que será el administrador principal y tendrá permiso para ejecutar todas las operaciones disponibles.
                         </div>
                         <form id="form-final-install">
                             <div class="form-group">
@@ -36,7 +36,7 @@ if(strpos($_SERVER['REQUEST_URI'], $_SESSION['instalacion']) == false){
                             <div class="form-group">
                                 <label for="pass-2">Repetir contraseña </label>
                                 <input class="form-control" type="password" id="pass-2" placeholder="Repita su contraseña" onkeyup="comprobarCampo(this)" minlength="6" required>
-                                <small class="form-text text-info">Contraseña para acceder al panel con el email introducido.</small>
+                                <small class="form-text text-info">Contraseña acceso al panel.</small>
                             </div>
                             <div class="form-group mb-0 text-center">
                                 <button class="btn btn-success btn-block" type="submit"> Finalizar la instalación </button>

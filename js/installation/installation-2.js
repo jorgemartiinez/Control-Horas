@@ -39,13 +39,15 @@ function createMailConfig(){
             data: dataString,
             success: function(data) {
                 if(data.includes('OK')) { //OK
-                    mensajeCustomUnBoton('¡Bien hecho!', 'Se ha comprobado correctamente la conexión de correo electrónico. ', 'success')
+                    mensajeCustomUnBoton('¡Bien hecho!', 'Se ha comprobado correctamente la conexión con su hosting de correo electrónico. ', 'success')
                 }else{
                     mensajeCustomUnBotonSinRecargar('Error', 'No se ha podido establecer la conexión con su hosting de correo electrónico. Vuelva a intentarlo.', 'error');
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                mensajeCustomUnBotonSinRecargar('Error', 'No se ha podido establecer la conexión con su hosting de correo electrónico. Vuelva a intentarlo.', 'error');
+                mensajeCustomUnBotonSinRecargar('Error', 'Se ha producido un error al procesar la petición. Vuelva a intentarlo.', 'error');
+                //alert(xhr.status);
+                //alert(thrownError);
             }
         });
 

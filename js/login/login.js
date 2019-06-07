@@ -11,7 +11,6 @@ window.addEventListener("load", function () {
 
 
 function login(event) {
-
     event.preventDefault();
 
     let email = document.getElementById('email');

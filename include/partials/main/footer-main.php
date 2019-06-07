@@ -36,7 +36,6 @@
 <script src="assets/js/pages/form-fileuploads.init.js"></script>
 <!-- FIN SUBIDA -->
 
-
 <!-- Init js -->
 <script src="assets/js/pages/bootstrap-tables.init.js"></script>
 <!-- Summernote js -->

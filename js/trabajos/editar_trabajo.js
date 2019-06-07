@@ -35,8 +35,7 @@ function editarYCompletar(event) {
 
         if(comprobarCampo(titulo) && comprobarCampo(cliente) && comprobarCampo(trabajo)  && comprobarCampo(horas)  && comprobarCampo(minutos)){ //comprobaciones
 
-            let dataString = 'trabajo='+trabajo.value +'&fin=si' +'&horas='+horas.value
-                +'&minutos='+minutos.value +'&cliente='+cliente.value + '&titulo='+titulo.value +'&descripcion='+descripcion;
+            let dataString = { titulo: titulo.value, descripcion:descripcion, cliente:cliente.value, trabajo:trabajo.value, fin: 'si', horas:horas.value, minutos:minutos.value};
 
             mensajeAJAXWarningEnviarCorreo('trabajos/update_trabajo.php', dataString, cliente.value); //generamos la petición al aceptar el warning
 
@@ -66,9 +65,7 @@ function editarTrabajo(event){
 
     if(comprobarCampo(titulo) &&  comprobarCampo(cliente)&& comprobarCampo(trabajo) ){ //validamos
 
-        let dataString = 'titulo='+titulo.value+'&horas='+'&descripcion='
-            +descripcion+'&cliente='+cliente.value+'&trabajo='+trabajo.value+'&fin=no'+'&horas='+horas.value
-            +'&minutos='+minutos.value ;
+        let dataString = { titulo: titulo.value, descripcion:descripcion, cliente:cliente.value, trabajo:trabajo.value, fin: 'no', horas:horas.value, minutos:minutos.value};
 
         /* Realizamos petición al servidor */
         $.ajax({

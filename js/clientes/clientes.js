@@ -120,7 +120,7 @@ function updateCliente(event){
             data: dataString,
             success: function (data) {
                 cerrarModalEditar();
-                if(data == 'OK'){
+                if(data.includes('OK')){
                     mensajeCustomUnBoton('OK', 'El usuario ha sido actualizado correctamente.', 'success');
                 }else{
                     mensajeGenericoError();
